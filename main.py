@@ -9,33 +9,33 @@ import os
 from dotenv import load_dotenv, dotenv_values
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__, template_folder="html")
-app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "sqlite:////Users/Nizar/OneDrive - Hogeschool Rotterdam/healthy-cheap/database2.db"
-)
+# app = Flask(__name__, template_folder="html")
+# app.config["SQLALCHEMY_DATABASE_URI"] = (
+#     "sqlite:////Users/Nizar/OneDrive - Hogeschool Rotterdam/healthy-cheap/database2.db"
+# )
 
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-app.app_context().push()
-db = SQLAlchemy()
-db.init_app(app)
-config = dotenv_values(".env")
+# app.app_context().push()
+# db = SQLAlchemy()
+# db.init_app(app)
+# config = dotenv_values(".env")
 
-load_dotenv()
-
-
-user_key = os.getenv("user_key")
+# load_dotenv()
 
 
-class users(db.Model):
-    __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=True)
-    user_name = db.Column((db.String(100)), nullable=False)
-    pass_word = db.Column((db.String(100)), nullable=False)
+# user_key = os.getenv("user_key")
 
-    def __init__(self, user_name, pass_word):
-        self.user_name = user_name
-        self.pass_word = pass_word
+
+# class users(db.Model):
+#     __tablename__ = "users"
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_name = db.Column((db.String(100)), nullable=False)
+#     pass_word = db.Column((db.String(100)), nullable=False)
+
+#     def __init__(self, user_name, pass_word):
+#         self.user_name = user_name
+#         self.pass_word = pass_word
 
 
 @app.route("/")
@@ -48,18 +48,18 @@ def home():
 def register():
     username = request.form.get("username")
     password = request.form.get("password")
-    if request.method == "POST":
+    # if request.method == "POST":
 
-        user = users(user_name=username, pass_word=password)
-        db.session.add(user)
-        db.session.commit()
-        return render_template(
-            "registration.html", user_name=username, pass_word=password
+    #     user = users(user_name=username, pass_word=password)
+    #     db.session.add(user)
+    #     db.session.commit()
+    return render_template(
+        "registration.html", user_name=username, pass_word=password
         )
-    if request.method == "GET":
-        return render_template(
-            "registration.html", user_name=username, pass_word=password
-        )
+    # if request.method == "GET":
+    #     return render_template(
+    #         "registration.html", user_name=username, pass_word=password
+    #     )
 
 
 @app.route("/forum", methods=["GET", "POST"])
@@ -72,5 +72,5 @@ def forum():
 
 
 if __name__ == "__main__":
-    db.create_all()
+    # db.create_all()
     app.run(debug=True)
