@@ -1,3 +1,4 @@
+/* static/home.css */
 body {
     font-family: Arial, sans-serif;
     background-color: rgb(68, 47, 183);
@@ -7,19 +8,28 @@ body {
 }
 
 h1 {
-    color: #1ca01c;
-    font-size: 48px; 
-    text-align: center; 
-    margin-top: 20px; 
+    color: green; /* Change the color to green */
+    font-size: 48px; /* Increase the font size */
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Add some margin at the top */
 }
 
-div {
-    margin-top:400px; 
+.center-image {
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-container {
+    margin-top: 200px; /* Increase the margin to move buttons further down */
 }
 
 button {
     padding: 50px 100px;
-    margin: 100px;
+    margin: 50px;
     font-size: 16px;
     cursor: pointer;
 }
