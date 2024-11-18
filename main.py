@@ -67,24 +67,24 @@ def login():
     login_name = request.form.get("login_name")
     login_password = request.form.get("password")
 
-    if request.method == "POST":
-        if check_user(login_name, login_password):
+    # if request.method == "POST":
+    #     if check_user(login_name, login_password):
 
-            return redirect("/forum")
+    #         return redirect("/forum")
 
     return render_template(
         "login.html", login_name=login_name, login_password=login_password
     )
 
 
-def check_user(username, password):
-    for i in db.session.query(users):
-        print(i.user_name, i.pass_word)
-        if i.user_name == username and i.pass_word == password:
-            print(i.user_name, i.pass_word)
+# def check_user(username, password):
+#     for i in db.session.query(users):
+#         print(i.user_name, i.pass_word)
+#         if i.user_name == username and i.pass_word == password:
+#             print(i.user_name, i.pass_word)
 
-            return True
-    return False
+#             return True
+#     return False
 
 
 @app.route("/forum", methods=["GET", "POST"])
