@@ -11,7 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, template_folder="html")
 app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "sqlite:////Users/Nizar/OneDrive - Hogeschool Rotterdam/healthy-cheap/database2.db"
+    "sqlite:////Users/berkc\OneDrive/Bureaublad/RAC/proffesionele vorming/healthy-cheap/database2.db"
 )
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
